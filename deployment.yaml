@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cmg
+  labels:
+    app: cmg
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cmg
+  template:
+    metadata:
+      labels:
+        app: cmg
+    spec:
+      containers:
+      - name: cmg
+        image: cmg:latest
+        imagePullPolicy: "IfNotPresent"
+        ports:
+        - containerPort: 1234
